@@ -37,32 +37,6 @@ canvas {
   height: 100%;
 
 }
-.img1 { 
-  top: 100px; 
-  left: 100px; 
-}
-
-.img2 { 
-  top: 100px; 
-  right: 100px; 
-}
-
-.img3 { 
-  bottom: 100px; 
-  left: 100px; 
-}
-
-.img4 { 
-  bottom: 100px; 
-  right: 100px; 
-}
-.img1, .img2, .img3, .img4 {
-  position: absolute;
-  width: 260px;
-  height: 260px;
-  z-index: 2;
-  object-fit: cover;
-}
 .img1 { position: absolute; width: 350px; height: 350px; top: 90px; left: 90px; } .img2 { position: absolute; width: 350px; height: 350px; top: 90px; right: 90px; } .img3 { position: absolute; height: 350px; width: 350px; bottom: 90px; left: 90px; } .img4 { position: absolute; height: 350px; width: 350px; bottom: 90px; right: 90px; }
 
 
@@ -92,15 +66,15 @@ var settings = {
 
   particles: {
 
-    length:   900, // maximum amount of particles
+    length:   500, // maximum amount of particles
 
-    duration:   3, // particle duration in sec
+    duration:   2, // particle duration in sec
 
     velocity: 100, // particle velocity in pixels/sec
 
     effect: -0.75, // play with this for a nice effect
 
-    size:      45, // particle size in pixels
+    size:      30, // particle size in pixels
 
   },
 
@@ -389,6 +363,17 @@ var ParticlePool = (function() {
 
   // get point on heart with -PI <= t <= PI
 
+  function pointOnHeart(t) {
+
+    return new Point(
+
+      160 * Math.pow(Math.sin(t), 3),
+
+      130 * Math.cos(t) - 50 * Math.cos(2 * t) - 20 * Math.cos(3 * t) - 10 * Math.cos(4 * t) + 25
+
+    );
+
+  }
  function pointOnHeart(t) {
 
   var scale = 1.8; // tăng số này để tim to hơn
